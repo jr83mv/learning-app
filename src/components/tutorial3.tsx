@@ -1,8 +1,8 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
+  Dimensions,
   Image,
-  SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -14,7 +14,8 @@ function Tutorial3(): JSX.Element {
   const navigation = useNavigation();
 
   const theme = useTheme();
-  const styles = getCustomStyles(theme);
+  const WindowsHeight = Dimensions.get('window').height;
+  const styles = getCustomStyles(theme,WindowsHeight);
 
   const handleSignup = () => {
     navigation.navigate('Signup');
@@ -25,17 +26,17 @@ function Tutorial3(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={styles.bgColor}>
-      <View style={[styles.container, styles.bgColor]}>
+    <View>
+      <View style={[styles.container]}>
         <Image
           style={[styles.skip]}
-          source={require('../assets/illustration3.png')}
+          source={require('../assets/illustration03.png')}
         />
         <Text style={[styles.gap, styles.textBold]}>Create your own </Text>
         <Text style={[styles.gap, styles.textBold]}>study plan</Text>
         <Text style={[styles.gap, styles.text]}>Study according to the </Text>
         <Text style={[styles.gap, styles.text]}>study plan, make study </Text>
-        <Text style={[styles.gap, styles.text]}>imore motivated </Text>
+        <Text style={[styles.gap, styles.text]}>more motivated </Text>
         <Image
           source={require('../assets/pavigation2.png')}
           style={[styles.gap, styles.pavig]}
@@ -49,29 +50,28 @@ function Tutorial3(): JSX.Element {
           </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
-const getCustomStyles = (theme: MD3Theme) =>
+const getCustomStyles = (theme: MD3Theme,WindowsHeight:number) =>
   StyleSheet.create({
-    bgColor: {
-      backgroundColor: theme.colors.background,
-    },
     container: {
       flexDirection: 'column',
       alignItems: 'center',
+      backgroundColor: theme.colors.primaryContainer,
+      height:WindowsHeight,
     },
     buttonContainer: {
-      marginTop: 50,
+      marginTop: 30,
       flexDirection: 'row',
-      gap: 100,
+      gap: 20,
       justifyContent: 'space-around',
       alignItems: 'center',
     },
     button1: {
       borderRadius: 10,
-      width: 110,
+      width: 150,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -80,14 +80,14 @@ const getCustomStyles = (theme: MD3Theme) =>
     },
     button2: {
       borderRadius: 10,
-      width: 110,
-      borderStyle: 'solid',
-      borderColor: '#3D5CFF',
+      width: 150,
       display: 'flex',
       borderWidth: 1,
+      borderColor:theme.colors.secondary,
       alignItems: 'center',
       justifyContent: 'center',
       height: 40,
+      backgroundColor:theme.colors.onSecondaryContainer
     },
     buttonTitle1: {
       color: 'white',
@@ -96,7 +96,7 @@ const getCustomStyles = (theme: MD3Theme) =>
       color: theme.colors.primary,
     },
     buttonTitle2: {
-      color: '#3D5CFF',
+      color: theme.colors.onPrimary,
     },
     sectionDescription: {
       marginTop: 8,
@@ -113,7 +113,7 @@ const getCustomStyles = (theme: MD3Theme) =>
       color: theme.colors.primary,
     },
     pavig: {
-      marginTop: 40,
+      marginTop: 20,
     },
     skip: {
       marginTop: 80,

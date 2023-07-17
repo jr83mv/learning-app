@@ -1,7 +1,7 @@
 import React from 'react';
 import {
+  Dimensions,
   Image,
-  SafeAreaView,
   StyleSheet,
   Text,
   useColorScheme,
@@ -17,11 +17,12 @@ function Tutorial1(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   const theme = useTheme();
-  const styles = getCustomStyles(theme);
+  const WindowsHeight = Dimensions.get('window').height;
+  const styles = getCustomStyles(theme,WindowsHeight);
 
   return (
-    <SafeAreaView style={styles.bgColor}>
-      <View style={[styles.container, styles.bgColor]}>
+    <View>
+      <View style={[styles.container]}>
         <View style={styles.skipContainer}>
           <Text style={[styles.skip, styles.text]}>skip</Text>
         </View>
@@ -38,16 +39,15 @@ function Tutorial1(): JSX.Element {
           style={[styles.gap, styles.pavig]}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
-const getCustomStyles = (theme: MD3Theme) =>
+const getCustomStyles = (theme: MD3Theme,WindowsHeight:number) =>
   StyleSheet.create({
-    bgColor: {
-      backgroundColor: theme.colors.background,
-    },
     container: {
+      backgroundColor: theme.colors.primaryContainer,
+      height:WindowsHeight,
       flexDirection: 'column',
       alignItems: 'center',
     },
@@ -77,7 +77,8 @@ const getCustomStyles = (theme: MD3Theme) =>
     },
     skipContainer: {
       alignSelf: 'flex-end',
-      marginRight: 10,
+      marginRight: 20,
+      marginTop: 40,
     },
   });
 

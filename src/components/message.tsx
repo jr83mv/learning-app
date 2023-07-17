@@ -8,15 +8,18 @@ function Message(props: any): JSX.Element {
   return (
     <View style={[styles.container, styles.shadowProp]}>
       <View style={[styles.innerContainer1]}>
+        <View style={[styles.innerContainer1]}>
         <Image source={require('../assets/mes.png')} />
         <View style={[styles.innerContainer2]}>
           <Text style={[styles.text]}>{'Bert Pullman'}</Text>
-          <Text style={[styles.text]}>{'Online'}</Text>
+          <Text style={[styles.text2]}>{'Online'}</Text>
         </View>
-        <Text style={[styles.text]}>{'04:32 pm'}</Text>
+        </View>
+        
+        <Text style={[styles.text2]}>{'04:32 pm'}</Text>
       </View>
       <View style={[styles.innerContainer1]}>
-        <Text style={[styles.text]}>
+        <Text style={[styles.text3]}>
           {
             'Congratulations on completing the first lesson, keep up the good work!'
           }
@@ -31,6 +34,7 @@ const generateStyles = (theme: MD3Theme) =>
     innerContainer1: {
       flexDirection: 'row',
       gap: 20,
+      justifyContent:'space-between'
     },
     innerContainer2: {
       flexDirection: 'column',
@@ -58,6 +62,15 @@ const generateStyles = (theme: MD3Theme) =>
       shadowColor: '#171717',
       shadowOpacity: 0.2,
       shadowRadius: 3,
+    },
+    text1:{
+      color:'#B8B8D2',
+    },
+    text2:{
+      color:'#858597',
+    },
+    text3:{
+      color:theme.colors.onSecondary,
     },
   });
 

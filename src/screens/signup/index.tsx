@@ -24,13 +24,13 @@ function Signup(): JSX.Element {
       <ScrollView>
         <View style={styles.containerHeader}>
           <Text style={styles.containerHeaderText}>Sign Up</Text>
-          <Text style={[styles.text, styles.containerHeaderNote]}>
+          <Text style={[styles.text1, styles.containerHeaderNote]}>
             Enter your details below & Sign up
           </Text>
 
           <View style={styles.containerBody}>
             <View>
-              <Text style={[styles.text]}>Your Email</Text>
+              <Text style={[styles.text2]}>Your Email</Text>
               <TextInput
                 style={styles.input}
                 placeholder="Enter Email"
@@ -38,7 +38,7 @@ function Signup(): JSX.Element {
               />
             </View>
             <View>
-              <Text style={[styles.text]}>Password</Text>
+              <Text style={[styles.text2]}>Password</Text>
               <TextInput
                 style={styles.input}
                 placeholder="Enter Password"
@@ -57,17 +57,20 @@ function Signup(): JSX.Element {
                   setChecked(!checked);
                 }}
               />
-              <Text style={[styles.text, styles.checkBoxText]}>
+              <Text style={[styles.text1, styles.checkBoxText]}>
                 By creating an account you have to agree with our terms and
                 conditions
               </Text>
             </View>
-            <Text style={[styles.textAlready]}>Already have an account?</Text>
+            <View style={styles.textAlready}>
+            <Text style={[styles.text1]}>Already have an account? </Text>
             <Text
-              style={[styles.textAlready]}
+              style={[styles.text3]}
               onPress={() => navigation.navigate('Login')}>
-              Log in
+               Log in
             </Text>
+            </View>
+            
           </View>
         </View>
       </ScrollView>
@@ -128,13 +131,12 @@ const customStyles = (
     },
     containerHeaderNote: {
       paddingLeft: 26,
-      color: theme.colors.primary,
       textAlign: 'left',
     },
     textAlready: {
       textAlign: 'center',
-      color: theme.colors.primary,
-      padding: 20,
+      alignSelf:'center',
+      flexDirection:'row',
     },
     containerBody: {
       display: 'flex',
@@ -151,9 +153,19 @@ const customStyles = (
       flexDirection: 'row',
     },
     checkBoxText: {
-      color: theme.colors.primary,
       marginRight: 40,
     },
+    text1:{
+      color:'#B8B8D2',
+    },
+    text2:{
+      color:'#858597',
+    },
+    text3:{
+      color:'#3D5CFF',
+      fontWeight: 'bold',
+      textDecorationLine: 'underline'
+    }
   });
 
 export default Signup;

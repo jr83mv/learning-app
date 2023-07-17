@@ -21,6 +21,8 @@ import {
       onPrimary: '#3D5CFF',
       onSecondaryContainer: '#F4F3FD',
       onSecondary: '#858597',
+      secondary:'#3D5CFF',
+      tertiary:'white',
     },
   };
   
@@ -38,6 +40,8 @@ import {
       onPrimary: 'white',
       onSecondaryContainer: '#858597',
       onSecondary: 'white',
+      secondary:'#858597',
+      tertiary:'#858597',
     },
   };
   

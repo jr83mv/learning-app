@@ -26,7 +26,7 @@ function Login(): JSX.Element {
           <View style={styles.containerBody}>
             <View>
               <View>
-                <Text style={styles.text}>Your Email</Text>
+                <Text style={styles.text2}>Your Email</Text>
                 <TextInput
                   style={styles.input}
                   placeholder="Enter Email"
@@ -34,7 +34,7 @@ function Login(): JSX.Element {
                 />
               </View>
               <View>
-                <Text style={styles.text}>Password</Text>
+                <Text style={styles.text2}>Password</Text>
                 <TextInput
                   style={styles.input1}
                   placeholder="Enter Password"
@@ -45,12 +45,12 @@ function Login(): JSX.Element {
               <TouchableOpacity
                 style={styles.button}
                 onPress={() => navigation.navigate('TabNavigator')}>
-                <Text style={styles.buttonTitle}>Sign up</Text>
+                <Text style={styles.buttonTitle}>Log In</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.accountSetup}>
-              <View>
-                <Text style={styles.textDontHave}>Don't have an account?</Text>
+              <View style={styles.con1}>
+                <Text style={styles.textDontHave}>Don't have an account? </Text>
                 <Text
                   style={styles.signupText}
                   onPress={() => navigation.navigate('Signup')}>
@@ -60,7 +60,7 @@ function Login(): JSX.Element {
 
               <View style={styles.lineContainer}>
                 <View style={styles.line} />
-                <Text style={styles.textDontHave}>Or Login with</Text>
+                <Text style={styles.textDontHave}>     Or Login with     </Text>
                 <View style={styles.line} />
               </View>
               <View style={styles.accounts}>
@@ -94,7 +94,7 @@ const generateStyles = (theme: MD3Theme, WindowsWidth: number) =>
     },
     button: {
       borderRadius: 10,
-      width: WindowsWidth - 65,
+      width: WindowsWidth - 35,
       borderStyle: 'solid',
       borderColor: '#3D5CFF',
       display: 'flex',
@@ -155,7 +155,7 @@ const generateStyles = (theme: MD3Theme, WindowsWidth: number) =>
       lineHeight: 21,
       marginBottom: 10,
       marginTop: 5,
-      color: theme.colors.primary,
+      color:'#B8B8D2',
     },
 
     textDontHave: {
@@ -164,8 +164,7 @@ const generateStyles = (theme: MD3Theme, WindowsWidth: number) =>
       fontWeight: 'normal',
       letterSpacing: 0.5,
       lineHeight: 21,
-      color: theme.colors.primary,
-      padding: 14,
+      color:'#B8B8D2',
     },
 
     accounts: {
@@ -174,6 +173,7 @@ const generateStyles = (theme: MD3Theme, WindowsWidth: number) =>
       justifyContent: 'space-evenly',
       width: '70%',
       padding: 10,
+      marginTop:10,
     },
 
     accountSetup: {
@@ -189,14 +189,31 @@ const generateStyles = (theme: MD3Theme, WindowsWidth: number) =>
     },
 
     line: {
-      width: '25%',
+      width: '29%',
       height: 1,
       backgroundColor: '#B8B8D2',
     },
     signupText: {
       textAlign: 'center',
       color: '#3D5CFF',
-      padding: 20,
+    },
+    text1:{
+      color:'#B8B8D2',
+    },
+    text2:{
+      color:'#858597',
+    },
+    text3:{
+      color:'#3D5CFF',
+      fontWeight: 'bold',
+      textDecorationLine: 'underline'
+    },
+    con1:{
+      flexDirection:'row',
+      textAlign:'center',
+      alignItems:'center',
+      marginTop:20,
+      marginBottom:20,
     },
   });
 export default Login;

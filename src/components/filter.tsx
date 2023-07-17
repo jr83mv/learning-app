@@ -11,6 +11,7 @@ import {MD3Theme, useTheme} from 'react-native-paper';
 import FilterField from './filterField';
 
 function Filter(props: any): JSX.Element {
+  console.log(props.data2)
   const entries = Object.entries(props.data ? props.data : []);
   const WindowsHeight = Dimensions.get('window').height;
   const theme = useTheme();
