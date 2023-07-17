@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import {MD3Theme, useTheme} from 'react-native-paper';
-import FilterField from '../components/filterField';
+import FilterField from './filterField';
 
 function Filter(props: any): JSX.Element {
   const entries = Object.entries(props.data ? props.data : []);

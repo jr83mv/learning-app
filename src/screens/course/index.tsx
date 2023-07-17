@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {MD3Theme, useTheme} from 'react-native-paper';
 import Cards from '../../components/card';
-import Filter from '../filter';
+import Filter from '../../components/filter';
 
 function Course(): JSX.Element {
   const WindowsHeight = Dimensions.get('window').height;

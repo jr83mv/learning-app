@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import Tutorial1 from '../tutorial1';
-import Tutorial2 from '../tutorial2';
-import Tutorial3 from '../tutorial3';
+import Tutorial1 from '../../components/tutorial1';
+import Tutorial2 from '../../components/tutorial2';
+import Tutorial3 from '../../components/tutorial3';
 import {Dimensions, View} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 function TutorialCarousel(): JSX.Element {
