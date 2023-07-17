@@ -1,10 +1,7 @@
-import React, { useState } from 'react'
-
-import { Alert, Dimensions, Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React from 'react'
+import { Dimensions, Image, SafeAreaView,  StyleSheet, Text, View } from 'react-native'
 import { useTheme } from 'react-native-paper';
-function Account (): JSX.Element {
-
-    const WindowsWidth = Dimensions.get('window').width;
+function Account(): JSX.Element {
     const WindowsHeight = Dimensions.get('window').height;
     const theme = useTheme();
     const styles = StyleSheet.create({
@@ -14,7 +11,7 @@ function Account (): JSX.Element {
         },
         text: {
             color: theme.colors.primary,
-            fontSize:18,
+            fontSize: 18,
         },
         title: {
             fontWeight: 'bold',
@@ -33,33 +30,33 @@ function Account (): JSX.Element {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            marginBottom:10,
+            marginBottom: 10,
         },
-       profile:{
-        alignSelf:'center',
-       }
+        profile: {
+            alignSelf: 'center',
+        }
     })
 
 
     return (<SafeAreaView style={[styles.outerContainer]}>
         <View style={[styles.container]}>
             <Text style={[styles.title]}>Account</Text>
-            <Image style={[styles.profile]} source={require('../assets/Avatar1.png')} />
+            <Image style={[styles.profile]} source={require('../../assets/Avatar1.png')} />
             <View style={[styles.innerContainer1]}>
                 <Text style={[styles.text]}>Favourite</Text>
-                <Image source={require('../assets/right.png')} />
+                <Image source={require('../../assets/right.png')} />
             </View>
             <View style={[styles.innerContainer1]}>
                 <Text style={[styles.text]}>Edit Account</Text>
-                <Image source={require('../assets/right.png')} />
+                <Image source={require('../../assets/right.png')} />
             </View>
             <View style={[styles.innerContainer1]}>
                 <Text style={[styles.text]}>Settings and Privacy</Text>
-                <Image source={require('../assets/right.png')} />
+                <Image source={require('../../assets/right.png')} />
             </View>
             <View style={[styles.innerContainer1]}>
                 <Text style={[styles.text]}>Help</Text>
-                <Image source={require('../assets/right.png')} />
+                <Image source={require('../../assets/right.png')} />
             </View>
 
         </View>
