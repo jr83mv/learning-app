@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import {useTheme} from 'react-native-paper';
 import Message from '../../components/message';
 function Notifications(): JSX.Element {
   const theme = useTheme();
@@ -15,7 +15,7 @@ function Notifications(): JSX.Element {
   const styles = StyleSheet.create({
     bgColor: {
       backgroundColor: theme.colors.primaryContainer,
-      height:WindowsHeight,
+      height: WindowsHeight,
     },
     innerContainer2: {
       flexDirection: 'row',

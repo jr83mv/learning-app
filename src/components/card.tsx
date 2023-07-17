@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import React, {useMemo} from 'react';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import {useTheme} from 'react-native-paper';
 
 function Cards(props1: any): JSX.Element {
   // Get the current theme using the useTheme hook from react-native-paper
@@ -43,7 +43,7 @@ function Cards(props1: any): JSX.Element {
       alignSelf: 'center',
     },
     shadowProp: {
-      shadowOffset: { width: -2, height: 4 },
+      shadowOffset: {width: -2, height: 4},
       shadowColor: '#171717',
       shadowOpacity: 0.2,
       shadowRadius: 3,
@@ -69,9 +69,7 @@ function Cards(props1: any): JSX.Element {
         <Text style={[styles.text]}>{props1.data.location}</Text>
         <View style={[styles.innerContainer2]}>
           {/* Display the number of days since the job was posted */}
-          <Text style={[styles.text]}>
-            Posted {daysSincePosted} day ago
-          </Text>
+          <Text style={[styles.text]}>Posted {daysSincePosted} day ago</Text>
           {/* Display a separator */}
           <Text style={[styles.text]}>•</Text>
           {/* Display the number of applicants */}

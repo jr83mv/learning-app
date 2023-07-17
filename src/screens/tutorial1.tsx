@@ -7,7 +7,6 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useTheme} from 'react-native-paper';
 
