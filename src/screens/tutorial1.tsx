@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {useTheme} from 'react-native-paper';
+import {MD3Theme, useTheme} from 'react-native-paper';
 
 function Tutorial1(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -17,8 +17,33 @@ function Tutorial1(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   const theme = useTheme();
+  const styles = getCustomStyles(theme);
 
-  const styles = StyleSheet.create({
+  return (
+    <SafeAreaView style={styles.bgColor}>
+      <View style={[styles.container, styles.bgColor]}>
+        <View style={styles.skipContainer}>
+          <Text style={[styles.skip, styles.text]}>skip</Text>
+        </View>
+        <Image
+          style={[styles.skip]}
+          source={require('../assets/illustration1.png')}
+        />
+        <Text style={[styles.gap, styles.textBold]}>Numerous free</Text>
+        <Text style={[styles.gap, styles.textBold]}>trial courses</Text>
+        <Text style={[styles.gap, styles.text]}>Free courses for you to </Text>
+        <Text style={[styles.gap, styles.text]}>find your way to learning</Text>
+        <Image
+          source={require('../assets/pavigation.png')}
+          style={[styles.gap, styles.pavig]}
+        />
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const getCustomStyles = (theme: MD3Theme) =>
+  StyleSheet.create({
     bgColor: {
       backgroundColor: theme.colors.background,
     },
@@ -55,28 +80,5 @@ function Tutorial1(): JSX.Element {
       marginRight: 10,
     },
   });
-
-  return (
-    <SafeAreaView style={styles.bgColor}>
-      <View style={[styles.container, styles.bgColor]}>
-        <View style={styles.skipContainer}>
-          <Text style={[styles.skip, styles.text]}>skip</Text>
-        </View>
-        <Image
-          style={[styles.skip]}
-          source={require('../assets/illustration1.png')}
-        />
-        <Text style={[styles.gap, styles.textBold]}>Numerous free</Text>
-        <Text style={[styles.gap, styles.textBold]}>trial courses</Text>
-        <Text style={[styles.gap, styles.text]}>Free courses for you to </Text>
-        <Text style={[styles.gap, styles.text]}>find your way to learning</Text>
-        <Image
-          source={require('../assets/pavigation.png')}
-          style={[styles.gap, styles.pavig]}
-        />
-      </View>
-    </SafeAreaView>
-  );
-}
 
 export default Tutorial1;

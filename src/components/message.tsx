@@ -1,9 +1,33 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {MD3Theme, useTheme} from 'react-native-paper';
 
 function Message(props: any): JSX.Element {
   const theme = useTheme();
-  const styles = StyleSheet.create({
+  const styles = generateStyles(theme); // Call the function to generate styles
+
+  return (
+    <View style={[styles.container, styles.shadowProp]}>
+      <View style={[styles.innerContainer1]}>
+        <Image source={require('../assets/mes.png')} />
+        <View style={[styles.innerContainer2]}>
+          <Text style={[styles.text]}>{'Bert Pullman'}</Text>
+          <Text style={[styles.text]}>{'Online'}</Text>
+        </View>
+        <Text style={[styles.text]}>{'04:32 pm'}</Text>
+      </View>
+      <View style={[styles.innerContainer1]}>
+        <Text style={[styles.text]}>
+          {
+            'Congratulations on completing the first lesson, keep up the good work!'
+          }
+        </Text>
+      </View>
+    </View>
+  );
+}
+
+const generateStyles = (theme: MD3Theme) =>
+  StyleSheet.create({
     innerContainer1: {
       flexDirection: 'row',
       gap: 20,
@@ -36,26 +60,5 @@ function Message(props: any): JSX.Element {
       shadowRadius: 3,
     },
   });
-
-  return (
-    <View style={[styles.container, styles.shadowProp]}>
-      <View style={[styles.innerContainer1]}>
-        <Image source={require('../assets/mes.png')} />
-        <View style={[styles.innerContainer2]}>
-          <Text style={[styles.text]}>{'Bert Pullman'}</Text>
-          <Text style={[styles.text]}>{'Online'}</Text>
-        </View>
-        <Text style={[styles.text]}>{'04:32 pm'}</Text>
-      </View>
-      <View style={[styles.innerContainer1]}>
-        <Text style={[styles.text]}>
-          {
-            'Congratulations on completing the first lesson, keep up the good work!'
-          }
-        </Text>
-      </View>
-    </View>
-  );
-}
 
 export default Message;

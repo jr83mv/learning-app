@@ -1,11 +1,11 @@
 import React from 'react';
 import {Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Dashboard from '../screens/home/dashboard';
-import Course from '../screens/course/course';
-import Account from '../screens/account/account';
-import Search from '../screens/search/search';
-import Notifications from '../screens/notifications/notifications';
+import Dashboard from '../screens/home/index';
+import Course from '../screens/course/index';
+import Account from '../screens/account/index';
+import Search from '../screens/search/index';
+import Notifications from '../screens/notifications/index';
 
 const Tab = createBottomTabNavigator();
 

@@ -1,9 +1,28 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {MD3Theme, useTheme} from 'react-native-paper';
 
 function Notification(props: any): JSX.Element {
   const theme = useTheme();
-  const styles = StyleSheet.create({
+  const styles = generateStyles(theme); // Call the function to generate styles
+
+  return (
+    <View style={[styles.container, styles.shadowProp]}>
+      <View style={[]}>
+        <Image source={require('../assets/icon.png')} />
+      </View>
+      <View style={[styles.innerContainer1]}>
+        <Text style={[styles.text]}>{'Successful purchase!'}</Text>
+        <View style={[styles.innerContainer2]}>
+          <Image source={require('../assets/time.png')} />
+          <Text style={[styles.text]}>{'Just now'}</Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const generateStyles = (theme: MD3Theme) =>
+  StyleSheet.create({
     innerContainer1: {
       flexDirection: 'column',
       justifyContent: 'space-around',
@@ -32,21 +51,5 @@ function Notification(props: any): JSX.Element {
       shadowRadius: 3,
     },
   });
-
-  return (
-    <View style={[styles.container, styles.shadowProp]}>
-      <View style={[]}>
-        <Image source={require('../assets/icon.png')} />
-      </View>
-      <View style={[styles.innerContainer1]}>
-        <Text style={[styles.text]}>{'Successful purchase!'}</Text>
-        <View style={[styles.innerContainer2]}>
-          <Image source={require('../assets/time.png')} />
-          <Text style={[styles.text]}>{'Just now'}</Text>
-        </View>
-      </View>
-    </View>
-  );
-}
 
 export default Notification;

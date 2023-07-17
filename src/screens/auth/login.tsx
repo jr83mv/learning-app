@@ -1,4 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   Dimensions,
@@ -10,11 +9,73 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {MD3Theme, useTheme} from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
+
 function Login(): JSX.Element {
   const WindowsWidth = Dimensions.get('window').width;
   const theme = useTheme();
-  const styles = StyleSheet.create({
+  const styles = generateStyles(theme, WindowsWidth); // Call the function to generate styles
+  const navigation = useNavigation();
+
+  return (
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.containerHeader}>
+          <Text style={styles.containerHeaderText}>Log In</Text>
+          <View style={styles.containerBody}>
+            <View>
+              <View>
+                <Text style={styles.text}>Your Email</Text>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Enter Email"
+                  placeholderTextColor="#999999"
+                />
+              </View>
+              <View>
+                <Text style={styles.text}>Password</Text>
+                <TextInput
+                  style={styles.input1}
+                  placeholder="Enter Password"
+                  placeholderTextColor="#999999"
+                />
+              </View>
+              <Text style={styles.textForgetPassword}>Forget Password?</Text>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('TabNavigator')}>
+                <Text style={styles.buttonTitle}>Sign up</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.accountSetup}>
+              <View>
+                <Text style={styles.textDontHave}>Don't have an account?</Text>
+                <Text
+                  style={styles.signupText}
+                  onPress={() => navigation.navigate('Signup')}>
+                  Sign Up
+                </Text>
+              </View>
+
+              <View style={styles.lineContainer}>
+                <View style={styles.line} />
+                <Text style={styles.textDontHave}>Or Login with</Text>
+                <View style={styles.line} />
+              </View>
+              <View style={styles.accounts}>
+                <Image source={require('../../assets/logo.png')} />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </ScrollView>
+  );
+}
+
+const generateStyles = (theme: MD3Theme, WindowsWidth: number) =>
+  StyleSheet.create({
     input: {
       height: 40,
       borderColor: '#CCCCCC',
@@ -138,62 +199,4 @@ function Login(): JSX.Element {
       padding: 20,
     },
   });
-  const navigation = useNavigation();
-
-  return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.containerHeader}>
-          <Text style={styles.containerHeaderText}>Log In</Text>
-          <View style={styles.containerBody}>
-            <View>
-              <View>
-                <Text style={styles.text}>Your Email</Text>
-                <TextInput
-                  style={styles.input}
-                  placeholder="Enter Email"
-                  placeholderTextColor="#999999"
-                />
-              </View>
-              <View>
-                <Text style={styles.text}>Password</Text>
-                <TextInput
-                  style={styles.input1}
-                  placeholder="Enter Password"
-                  placeholderTextColor="#999999"
-                />
-              </View>
-              <Text style={styles.textForgetPassword}>Forget Password?</Text>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => navigation.navigate('TabNavigator')}>
-                <Text style={styles.buttonTitle}>Sign up</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.accountSetup}>
-              <View>
-                <Text style={styles.textDontHave}>Don't have an account?</Text>
-                <Text
-                  style={styles.signupText}
-                  onPress={() => navigation.navigate('Signup')}>
-                  Sign Up
-                </Text>
-              </View>
-
-              <View style={styles.lineContainer}>
-                <View style={styles.line} />
-                <Text style={styles.textDontHave}>Or Login with</Text>
-                <View style={styles.line} />
-              </View>
-              <View style={styles.accounts}>
-                <Image source={require('../assets/logo.png')} />
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-    </ScrollView>
-  );
-}
-
 export default Login;

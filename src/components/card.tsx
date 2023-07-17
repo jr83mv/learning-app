@@ -1,13 +1,43 @@
-import React, {useMemo} from 'react';
+import React, {useState, useMemo} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {MD3Theme, useTheme} from 'react-native-paper';
 
 function Cards(props1: any): JSX.Element {
-  // Get the current theme using the useTheme hook from react-native-paper
   const theme = useTheme();
+  const styles = generateStyles(theme); // Call the function to generate styles
 
-  // Define the styles using StyleSheet.create after obtaining the theme
-  const styles = StyleSheet.create({
+  // Calculate the number of days since the posted date using useMemo
+  const daysSincePosted = useMemo(() => {
+    const postedDate = new Date(props1.data.postedDate).getTime();
+    return Math.round((Date.now() - postedDate) / (1000 * 3600 * 24));
+  }, [props1.data.postedDate]);
+
+  return (
+    // Render the card view with the provided data
+    <View style={[styles.container, styles.shadowProp]}>
+      <Image source={require('../assets/Image.png')} />
+      <View style={[styles.innerContainer1]}>
+        {/* Display the job title */}
+        <Text style={[styles.title]}>{props1.data.name}</Text>
+        {/* Display the company name */}
+        <Text style={[styles.text]}>{props1.data.company}</Text>
+        {/* Display the job location */}
+        <Text style={[styles.text]}>{props1.data.location}</Text>
+        <View style={[styles.innerContainer2]}>
+          {/* Display the number of days since the job was posted */}
+          <Text style={[styles.text]}>Posted {daysSincePosted} day ago</Text>
+          {/* Display a separator */}
+          <Text style={[styles.text]}>•</Text>
+          {/* Display the number of applicants */}
+          <Text style={[styles.text]}>{props1.data.applicants} Applicants</Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const generateStyles = (theme: MD3Theme) =>
+  StyleSheet.create({
     outerContainer: {
       backgroundColor: theme.colors.primaryContainer,
     },
@@ -49,36 +79,6 @@ function Cards(props1: any): JSX.Element {
       shadowRadius: 3,
     },
   });
-
-  // Calculate the number of days since the posted date using useMemo
-  const daysSincePosted = useMemo(() => {
-    const postedDate = new Date(props1.data.postedDate).getTime();
-    return Math.round((Date.now() - postedDate) / (1000 * 3600 * 24));
-  }, [props1.data.postedDate]);
-
-  return (
-    // Render the card view with the provided data
-    <View style={[styles.container, styles.shadowProp]}>
-      <Image source={require('../assets/Image.png')} />
-      <View style={[styles.innerContainer1]}>
-        {/* Display the job title */}
-        <Text style={[styles.title]}>{props1.data.name}</Text>
-        {/* Display the company name */}
-        <Text style={[styles.text]}>{props1.data.company}</Text>
-        {/* Display the job location */}
-        <Text style={[styles.text]}>{props1.data.location}</Text>
-        <View style={[styles.innerContainer2]}>
-          {/* Display the number of days since the job was posted */}
-          <Text style={[styles.text]}>Posted {daysSincePosted} day ago</Text>
-          {/* Display a separator */}
-          <Text style={[styles.text]}>•</Text>
-          {/* Display the number of applicants */}
-          <Text style={[styles.text]}>{props1.data.applicants} Applicants</Text>
-        </View>
-      </View>
-    </View>
-  );
-}
 
 // Memoize the component to prevent unnecessary re-renders when props haven't changed
 export default React.memo(Cards);

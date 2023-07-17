@@ -1,9 +1,9 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Signup from '../screens/signup';
-import Login from '../screens/login';
+import Signup from '../screens/auth/signup';
+import Login from '../screens/auth/login';
 import TabNavigation from './tabNavigation';
-import TutorialCarousel from '../screens/carousel/carousel';
+import TutorialCarousel from '../screens/carousel';
 function AppNavigator(): JSX.Element {
   const Stack = createNativeStackNavigator();
   return (

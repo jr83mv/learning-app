@@ -11,70 +11,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {MD3Theme, useTheme} from 'react-native-paper';
 import Cards from '../../components/card';
 import Filter from '../filter';
+
 function Course(): JSX.Element {
   const WindowsHeight = Dimensions.get('window').height;
   const theme = useTheme();
-  const styles = StyleSheet.create({
-    outerContainer: {
-      backgroundColor: theme.colors.primaryContainer,
-      height: WindowsHeight,
-    },
-    text: {
-      fontSize: 18,
-      color: theme.colors.primary,
-    },
-    title: {
-      fontWeight: 'bold',
-      fontSize: 18,
-      color: theme.colors.primary,
-    },
-    modalContainer: {
-      flex: 1,
-      justifyContent: 'flex-end',
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    },
-    modalContent: {
-      backgroundColor: theme.colors.secondaryContainer,
-      borderTopLeftRadius: 20,
-      borderTopRightRadius: 20,
-      padding: 16,
-    },
-    container: {
-      flexDirection: 'column',
-      justifyContent: 'center',
-      gap: 10,
-      padding: 10,
-      paddingRight: 20,
-      paddingLeft: 20,
-    },
-    innerContainer1: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    innerContainer2: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      borderRadius: 10,
-      backgroundColor: theme.colors.onPrimaryContainer,
-      padding: 10,
-    },
-    innerContainer3: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      gap: 10,
-    },
-    textInput: {
-      width: 250,
-      color: theme.colors.primary,
-    },
-    cardContainer: {},
-  });
+
   const [modalVisible, setModalVisible] = useState(false);
 
   const openModal = () => {
@@ -84,6 +28,7 @@ function Course(): JSX.Element {
   const closeModal = () => {
     setModalVisible(false);
   };
+  const styles = getCustomStyles(theme, WindowsHeight);
 
   const [positionsData, setPositionsData] = useState([]);
   const [filterFiledsData, setFilterFiledsData] = useState([]);
@@ -206,5 +151,65 @@ function Course(): JSX.Element {
     </SafeAreaView>
   );
 }
+
+const getCustomStyles = (theme: MD3Theme, WindowsHeight: number) =>
+  StyleSheet.create({
+    outerContainer: {
+      backgroundColor: theme.colors.primaryContainer,
+      height: WindowsHeight,
+    },
+    text: {
+      fontSize: 18,
+      color: theme.colors.primary,
+    },
+    title: {
+      fontWeight: 'bold',
+      fontSize: 18,
+      color: theme.colors.primary,
+    },
+    modalContainer: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    modalContent: {
+      backgroundColor: theme.colors.secondaryContainer,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      padding: 16,
+    },
+    container: {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      gap: 10,
+      padding: 10,
+      paddingRight: 20,
+      paddingLeft: 20,
+    },
+    innerContainer1: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    innerContainer2: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      borderRadius: 10,
+      backgroundColor: theme.colors.onPrimaryContainer,
+      padding: 10,
+    },
+    innerContainer3: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      gap: 10,
+    },
+    textInput: {
+      width: 250,
+      color: theme.colors.primary,
+    },
+    cardContainer: {},
+  });
 
 export default Course;

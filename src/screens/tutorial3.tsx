@@ -8,13 +8,53 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {MD3Theme, useTheme} from 'react-native-paper';
 
 function Tutorial3(): JSX.Element {
   const navigation = useNavigation();
 
   const theme = useTheme();
-  const styles = StyleSheet.create({
+  const styles = getCustomStyles(theme);
+
+  const handleSignup = () => {
+    navigation.navigate('Signup');
+  };
+
+  const handleLogin = () => {
+    navigation.navigate('Login');
+  };
+
+  return (
+    <SafeAreaView style={styles.bgColor}>
+      <View style={[styles.container, styles.bgColor]}>
+        <Image
+          style={[styles.skip]}
+          source={require('../assets/illustration3.png')}
+        />
+        <Text style={[styles.gap, styles.textBold]}>Create your own </Text>
+        <Text style={[styles.gap, styles.textBold]}>study plan</Text>
+        <Text style={[styles.gap, styles.text]}>Study according to the </Text>
+        <Text style={[styles.gap, styles.text]}>study plan, make study </Text>
+        <Text style={[styles.gap, styles.text]}>imore motivated </Text>
+        <Image
+          source={require('../assets/pavigation2.png')}
+          style={[styles.gap, styles.pavig]}
+        />
+        <View style={[styles.buttonContainer]}>
+          <TouchableOpacity style={styles.button1} onPress={handleSignup}>
+            <Text style={styles.buttonTitle1}>Sign up</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button2} onPress={handleLogin}>
+            <Text style={styles.buttonTitle2}>Log in</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const getCustomStyles = (theme: MD3Theme) =>
+  StyleSheet.create({
     bgColor: {
       backgroundColor: theme.colors.background,
     },
@@ -84,42 +124,5 @@ function Tutorial3(): JSX.Element {
       marginRight: 10,
     },
   });
-
-  const handleSignup = () => {
-    navigation.navigate('Signup');
-  };
-
-  const handleLogin = () => {
-    navigation.navigate('Login');
-  };
-
-  return (
-    <SafeAreaView style={styles.bgColor}>
-      <View style={[styles.container, styles.bgColor]}>
-        <Image
-          style={[styles.skip]}
-          source={require('../assets/illustration3.png')}
-        />
-        <Text style={[styles.gap, styles.textBold]}>Create your own </Text>
-        <Text style={[styles.gap, styles.textBold]}>study plan</Text>
-        <Text style={[styles.gap, styles.text]}>Study according to the </Text>
-        <Text style={[styles.gap, styles.text]}>study plan, make study </Text>
-        <Text style={[styles.gap, styles.text]}>imore motivated </Text>
-        <Image
-          source={require('../assets/pavigation2.png')}
-          style={[styles.gap, styles.pavig]}
-        />
-        <View style={[styles.buttonContainer]}>
-          <TouchableOpacity style={styles.button1} onPress={handleSignup}>
-            <Text style={styles.buttonTitle1}>Sign up</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button2} onPress={handleLogin}>
-            <Text style={styles.buttonTitle2}>Log in</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </SafeAreaView>
-  );
-}
 
 export default Tutorial3;
