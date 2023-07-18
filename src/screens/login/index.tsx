@@ -124,7 +124,7 @@ const generateStyles = (theme: MD3Theme, WindowsWidth: number) =>
 
     containerHeader: {
       flexDirection: 'column',
-      paddingTop: 80,
+      paddingTop: 70,
       backgroundColor: theme.colors.tertiaryContainer,
     },
 
@@ -135,6 +135,7 @@ const generateStyles = (theme: MD3Theme, WindowsWidth: number) =>
       lineHeight: 48,
       fontWeight: '800',
       paddingLeft: 24,
+      marginBottom:20,
     },
 
     containerBody: {

@@ -14,6 +14,7 @@ import {
 import {MD3Theme, useTheme} from 'react-native-paper';
 import Cards from '../../components/card';
 import Filter from '../../components/filter';
+import CourseChoice from '../../components/courseChoice';
 
 function Course(): JSX.Element {
   const WindowsHeight = Dimensions.get('window').height;
@@ -121,7 +122,9 @@ function Course(): JSX.Element {
           source={require('../../assets/Recommendations.png')}
         />
         <Text style={[styles.text]}>Choose your course</Text>
-        <Image source={require('../../assets/tabs.png')} />
+        <ScrollView horizontal style={[styles.choiceScroll]}>
+          <CourseChoice/>
+        </ScrollView>
 
         <ScrollView style={[styles.cardContainer]}>
           {cardsData.map((cardData: JSON) => (
@@ -157,6 +160,9 @@ const getCustomStyles = (theme: MD3Theme, WindowsHeight: number) =>
     outerContainer: {
       backgroundColor: theme.colors.primaryContainer,
       height: WindowsHeight,
+    },
+    choiceScroll:{
+      height:60,
     },
     text: {
       fontSize: 18,

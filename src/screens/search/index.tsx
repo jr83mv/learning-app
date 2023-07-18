@@ -14,6 +14,7 @@ import {
 import {MD3Theme, useTheme} from 'react-native-paper';
 import Cards from '../../components/card';
 import Filter from '../../components/filter';
+import QuickSearch from '../../components/quickSearch';
 
 function Search(props: any): JSX.Element {
   const WindowsHeight = Dimensions.get('window').height;
@@ -111,7 +112,9 @@ function Search(props: any): JSX.Element {
             <Image source={require('../../assets/filter.png')} />
           </TouchableOpacity>
         </View>
-        <Image style={[]} source={require('../../assets/Frame.png')} />
+        <ScrollView horizontal style={[styles.choiceScroll]}>
+          <QuickSearch/>
+        </ScrollView>
         <Text style={[styles.text]}>Results</Text>
         <ScrollView style={[styles.cardContainer]}>
           {cardsData.map((cardData: JSON) => (
@@ -148,6 +151,9 @@ const getCustomStyles = (theme: MD3Theme, WindowsHeight: number) =>
     outerContainer: {
       backgroundColor: theme.colors.primaryContainer,
       height: WindowsHeight,
+    },
+    choiceScroll:{
+      height:60,
     },
     text: {
       fontSize: 18,

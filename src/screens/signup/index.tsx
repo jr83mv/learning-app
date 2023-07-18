@@ -147,7 +147,7 @@ const customStyles = (
       paddingTop: 25,
       marginTop: 10,
       backgroundColor: theme.colors.secondaryContainer,
-      paddingBottom: 170,
+      paddingBottom: 190,
     },
     checkBoxContainer: {
       flexDirection: 'row',
