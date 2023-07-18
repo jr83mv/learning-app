@@ -25,7 +25,7 @@ function Tutorial2(): JSX.Element {
     <View>
       <View style={[styles.container]}>
         <View style={styles.skipContainer}>
-          <Text style={[styles.skip, styles.text]}>skip</Text>
+          <Text style={[styles.skip]}>skip</Text>
         </View>
         <Image
           style={[styles.skip]}
@@ -33,9 +33,9 @@ function Tutorial2(): JSX.Element {
         />
         <Text style={[styles.gap, styles.textBold]}>Quick and easy</Text>
         <Text style={[styles.gap, styles.textBold]}>learning</Text>
-        <Text style={[styles.gap, styles.text]}>Easy and fast learning at</Text>
-        <Text style={[styles.gap, styles.text]}>any time to help you </Text>
-        <Text style={[styles.gap, styles.text]}>improve various skills </Text>
+        <Text style={[styles.gap, styles.text1]}>Easy and fast learning at</Text>
+        <Text style={[styles.gap, styles.text1]}>any time to help you </Text>
+        <Text style={[styles.gap, styles.text1]}>improve various skills </Text>
         <Image
           source={require('../assets/pavigation1.png')}
           style={[styles.gap, styles.pavig]}
@@ -74,6 +74,7 @@ const getCustomStyles = (theme: MD3Theme,WindowsHeight:number) =>
       marginTop: 40,
     },
     skip: {
+      color:'#858597',
       marginTop: 10,
       marginBottom: 20,
     },
@@ -81,6 +82,9 @@ const getCustomStyles = (theme: MD3Theme,WindowsHeight:number) =>
       alignSelf: 'flex-end',
       marginRight: 20,
       marginTop: 40,
+    },
+    text1:{
+      color:theme.colors.onSecondary,
     },
   });
 

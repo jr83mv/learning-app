@@ -9,10 +9,12 @@ import {
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {MD3Theme, useTheme} from 'react-native-paper';
+import '../locales/index';
+import {useTranslation} from 'react-i18next';
 
 function Tutorial1(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-
+  const {t} = useTranslation();
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -24,16 +26,16 @@ function Tutorial1(): JSX.Element {
     <View>
       <View style={[styles.container]}>
         <View style={styles.skipContainer}>
-          <Text style={[styles.skip, styles.text]}>skip</Text>
+          <Text style={[styles.skip]}>skip</Text>
         </View>
         <Image
           style={[styles.skip]}
           source={require('../assets/illustration1.png')}
         />
-        <Text style={[styles.gap, styles.textBold]}>Numerous free</Text>
-        <Text style={[styles.gap, styles.textBold]}>trial courses</Text>
-        <Text style={[styles.gap, styles.text]}>Free courses for you to </Text>
-        <Text style={[styles.gap, styles.text]}>find your way to learning</Text>
+        <Text style={[styles.gap, styles.textBold]}>{t('tutorial1.line1')}</Text>
+        <Text style={[styles.gap, styles.textBold]}>{t('tutorial1.line2')}</Text>
+        <Text style={[styles.gap, styles.text1]}>{t('tutorial1.line3')}</Text>
+        <Text style={[styles.gap, styles.text1]}>{t('tutorial1.line4')}</Text>
         <Image
           source={require('../assets/pavigation.png')}
           style={[styles.gap, styles.pavig]}
@@ -72,6 +74,7 @@ const getCustomStyles = (theme: MD3Theme,WindowsHeight:number) =>
       marginTop: 40,
     },
     skip: {
+      color:'#858597',
       marginTop: 10,
       marginBottom: 20,
     },
@@ -79,6 +82,9 @@ const getCustomStyles = (theme: MD3Theme,WindowsHeight:number) =>
       alignSelf: 'flex-end',
       marginRight: 20,
       marginTop: 40,
+    },
+    text1:{
+      color:theme.colors.onSecondary,
     },
   });
 

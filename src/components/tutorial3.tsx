@@ -35,8 +35,8 @@ function Tutorial3(): JSX.Element {
         <Text style={[styles.gap, styles.textBold]}>Create your own </Text>
         <Text style={[styles.gap, styles.textBold]}>study plan</Text>
         <Text style={[styles.gap, styles.text]}>Study according to the </Text>
-        <Text style={[styles.gap, styles.text]}>study plan, make study </Text>
-        <Text style={[styles.gap, styles.text]}>more motivated </Text>
+        <Text style={[styles.gap, styles.text1]}>study plan, make study </Text>
+        <Text style={[styles.gap, styles.text1]}>more motivated </Text>
         <Image
           source={require('../assets/pavigation2.png')}
           style={[styles.gap, styles.pavig]}
@@ -122,6 +122,9 @@ const getCustomStyles = (theme: MD3Theme,WindowsHeight:number) =>
     skipContainer: {
       alignSelf: 'flex-end',
       marginRight: 10,
+    },
+    text1:{
+      color:theme.colors.onSecondary,
     },
   });
 
