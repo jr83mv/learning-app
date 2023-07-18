@@ -26,7 +26,7 @@ function Tutorial1(): JSX.Element {
     <View>
       <View style={[styles.container]}>
         <View style={styles.skipContainer}>
-          <Text style={[styles.skip]}>skip</Text>
+          <Text style={[styles.skip,styles.text]}>skip</Text>
         </View>
         <Image
           style={[styles.skip]}
@@ -68,13 +68,13 @@ const getCustomStyles = (theme: MD3Theme,WindowsHeight:number) =>
       color: theme.colors.primary,
     },
     text: {
-      color: theme.colors.primary,
+      color:'#858597',
     },
     pavig: {
       marginTop: 40,
     },
     skip: {
-      color:'#858597',
+     
       marginTop: 10,
       marginBottom: 20,
     },
